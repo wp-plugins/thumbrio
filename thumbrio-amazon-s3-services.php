@@ -9,7 +9,7 @@ Author: Joaquin cuenca cuenca@thumbr.io.
 require_once (dirname(__FILE__) . '/library/amazon-s3-thumbrio.php');
 require_once (dirname(__FILE__) . '/library/auxiliary.php');
 
-define("THUMBRIO_BACKEND", "http://cdn.api.thumbr.io");
+define("THUMBRIO_BACKEND", "http://cdn.thumbr.io");
 define("THUMBRIO_FRONTEND", "http://thumbr.io");
 
 
@@ -125,22 +125,21 @@ function register_thumbrio_settings() {
     register_setting('thumbrio-group', 'thumbrio_secret_key');
     register_setting('thumbrio-group', 'thumbrio_base_url');
     register_setting('thumbrio-group', 'thumbrio_storage_settings');
-    register_setting('thumbrio-group', 'amazon_s3_bucket_name');
-    register_setting('thumbrio-group', 'amazon_s3_access_key');
-    register_setting('thumbrio-group', 'amazon_s3_secret_key');
-    register_setting('thumbrio-group', 'thumbrio_edit_image_url');
-    register_setting('thumbrio-group', 'amazon_buffer_marks');
-    register_setting('thumbrio-group', 'amazon-s3-urls');
-
+    register_setting('thumbrio-group', 'thumbrio_aux');
+    register_setting('thumbrio-group', 'thumbrio_amazon_s3_bucket_name');
+    register_setting('thumbrio-group', 'thumbrio_amazon_s3_access_key');
+    register_setting('thumbrio-group', 'thumbrio_amazon_s3_secret_key');
+    register_setting('thumbrio-group', 'thumbrio_amazon_s3_urls');
+    register_setting('thumbrio-group', 'thumbrio_amazon_buffer_marks');
     $base_url = defined('THUMBRIO_BASE_URL');
     if ($base_url) {
         $base_url = THUMBRIO_BACKEND . '/';  
     }
     update_option('thumbrio_base_url', $base_url);
 
-    $buffer_marks = get_option('amazon_buffer_marks');
+    $buffer_marks = get_option('thumbrio_amazon_buffer_marks');
     if (!$buffer_marks) {
-        update_option('amazon_buffer_marks', json_encode(array()));
+        update_option('thumbrio_amazon_buffer_marks', json_encode(array()));
     }
 }
 /**
@@ -231,6 +230,9 @@ function thumbrio_options() {
     <?php
         settings_fields('thumbrio-group');
     ?>
+    <p>You can consult your api key and secret key in <a href="http://www.thumbr.io/profile/">thumbrio profile</a>.<p>
+    <p>Before submitting your keys, assure you have got your <strong>Amazon S3</strong> or <strong>Thumbr.io S3</strong> backend
+        configured in <a href="http://www.thumbr.io/profile/storage">thumbrio storage</a>.</p>
     <table class="form-table">
         <tr valign="top">
             <th scope="row">Thumbr.io API Key</th>

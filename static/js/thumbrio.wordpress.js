@@ -34,17 +34,21 @@ function saveUserAndPassword() {
         }
         return encodeURIComponent(str).replace(/[~!'()\*]/g, _thumbrioEscapeSingle).replace(/%2F/g, '/');
     }
-    var btn = document.getElementById('submit');
-    btn.onclick = function (ev) {
+    document.forms[0].onsubmit = function (ev) {
+        var len = document.forms[0].getElementsByTagName('input').length;
+        var ok = document.forms[0].getElementsByTagName('input')[len - 1].type === 'hidden';
+        if (ok) {
+            return true;
+        }
         var xhr = getXHRRequestObject();
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 var res = JSON.parse(xhr.response);
-                addElement2Form('hidden', 'amazon_s3_bucket_name', res.bucket_name);
-                addElement2Form('hidden', 'amazon_s3_secret_key', res.private_key);
-                addElement2Form('hidden', 'amazon_s3_access_key', res.public_key);
+                addElement2Form('hidden', 'thumbrio_amazon_s3_bucket_name', res.bucket_name);
+                addElement2Form('hidden', 'thumbrio_amazon_s3_secret_key', res.private_key);
+                addElement2Form('hidden', 'thumbrio_amazon_s3_access_key', res.public_key);
                 addElement2Form('hidden', 'thumbrio_storage_settings', res.storage_settings);
-                document.getElementById('submit').click();
+                document.forms[0].submit.click();
             } else if (xhr.readyState == 4) {
                 addErrorMessage('<strong>Error</strong>: ' + xhr.response);
             }
@@ -54,8 +58,9 @@ function saveUserAndPassword() {
         }
         var apiKey = document.getElementsByName('thumbrio_api_key')[0].value;
         var secretKey = document.getElementsByName('thumbrio_secret_key')[0].value;
-        var url = 'https://thumbr.io/get/default_amazon_data?api_key=' + apiKey;
+        var url = 'https://www.thumbr.io/get/default_amazon_data?api_key=' + apiKey;
         var string2Sign = _thumbrioUrlencode(url);
+
         xhr.open('GET', url + '&signature=' + hex_hmac_md5(secretKey, string2Sign.replace(/\/\//g, '%2F%2F')));
         xhr.send();
         return false;

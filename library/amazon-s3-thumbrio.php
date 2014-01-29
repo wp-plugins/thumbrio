@@ -24,16 +24,16 @@ class Amazon_s3_thumbrio {
         if (!$page)
             $page = 0;
 
-        $marker = json_decode(get_option('amazon_buffer_marks'));
+        $marker = json_decode(get_option('thumbrio_amazon_buffer_marks'));
         if (!count($marker)) {
             $marker = array('');
         }
         $this->pagination = array('page' => $page, 'markers' => $marker, 'end' => false);
 
         $this->user_data = array(
-            'amazon_bucket_name' => get_option('amazon_s3_bucket_name'),
-            'amazon_access_key' => get_option('amazon_s3_access_key'),
-            'amazon_secret_key' => get_option('amazon_s3_secret_key'),
+            'amazon_bucket_name' => get_option('thumbrio_amazon_s3_bucket_name'),
+            'amazon_access_key' => get_option('thumbrio_amazon_s3_access_key'),
+            'amazon_secret_key' => get_option('thumbrio_amazon_s3_secret_key'),
             'thumbrio_api_key' => get_option('thumbrio_api_key'),
             'thumbrio_secret_key' => get_option('thumbrio_secret_key'),
             'thumbrio_base_url' => get_option('thumbrio_base_url')
@@ -111,7 +111,7 @@ class Amazon_s3_thumbrio {
         return $obj['content'];
     }
     static function get_urls_and_save_them($bucket_name, $amazon_secret_key, $amazon_access_key, $path, $marker, $max_keys, $size){
-        $content = get_option('amazon-s3-urls');
+        $content = get_option('thumbrio_amazon_s3_urls');
         $make_http_get = true;
         $objs = array('contents' => array());
 
