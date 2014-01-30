@@ -7,7 +7,7 @@ class Amazon_s3_thumbrio {
     const AMAZON_URL = 'https://s3.amazonaws.com/';
     const MAX_KEYS = 20;
 
-    function __construct($path, $page) {
+    function __construct($path) {
         function set_path($path, $self) {
             if (!$self->user_data)
                 return null;
@@ -21,15 +21,6 @@ class Amazon_s3_thumbrio {
             return $new_path;
         }
         $this->path = null;
-        if (!$page)
-            $page = 0;
-
-        $marker = json_decode(get_option('thumbrio_amazon_buffer_marks'));
-        if (!count($marker)) {
-            $marker = array('');
-        }
-        $this->pagination = array('page' => $page, 'markers' => $marker, 'end' => false);
-
         $this->user_data = array(
             'amazon_bucket_name' => get_option('thumbrio_amazon_s3_bucket_name'),
             'amazon_access_key' => get_option('thumbrio_amazon_s3_access_key'),
@@ -38,6 +29,12 @@ class Amazon_s3_thumbrio {
             'thumbrio_secret_key' => get_option('thumbrio_secret_key'),
             'thumbrio_base_url' => get_option('thumbrio_base_url')
         );
+
+        $marker = json_decode(get_option('thumbrio_amazon_buffer_marks'));
+        if (!count($marker)) {
+            $marker = array('');
+        }
+        $this->pagination = array('page' => 0, 'markers' => $marker, 'end' => false);
         if ($this->user_data['amazon_bucket_name'] || $this->user_data['amazon_access_key'] ||
             $this->user_data['amazon_secret_key']) {
             $this->path = set_path($path, $this);
@@ -45,6 +42,9 @@ class Amazon_s3_thumbrio {
             echo ('<h3><strong>Error:</strong> You must initialize a value for api_key, secret_key and ' .
                  'domain in Settings/Thumbr.io<h3>');
         }
+    }
+    function set_page($page) {
+        $this->pagination['page'] = $page;
     }
     function get_user_data ($data) {
         if ($data)
@@ -55,7 +55,7 @@ class Amazon_s3_thumbrio {
         function set_pagination($pagination, $page, $next) {
             if ($pagination) {
                 echo "<h3>Page " . ($page + 1) . "</h3>";
-                $url = 'admin-post.php?action=Save_images2';
+                $url = 'admin-post.php?action=Save_images_media';
                 if ($page > 0) {
                     echo "<a class='thumbrio-button' href=\"$url&page=" . ($page - 1) . "\">&larr;</a>\n";
                 } else {
@@ -106,7 +106,7 @@ class Amazon_s3_thumbrio {
             } else {
                 array_push($this->pagination['markers'], $obj['next-marker']);    
             }
-            update_option('amazon_buffer_marks', json_encode($this->pagination['markers']));
+            update_option('thumbrio_amazon_buffer_marks', json_encode($this->pagination['markers']));
         }
         return $obj['content'];
     }
@@ -150,7 +150,7 @@ class Amazon_s3_thumbrio {
             $objs['contents'][] = $obj;
         }
         $objs['date'] = (string)date('Y-m-d H:i:s');
-        update_option('amazon-s3-urls', json_encode($objs));
+        update_option('thumbrio_amazon_s3_urls', json_encode($objs));
         return $obj;
     }
     static function get_urls_from_page($bucket_name, $secret_key, $access_key, $prefix, $marker, $max_keys, $size) {
@@ -180,6 +180,7 @@ class Amazon_s3_thumbrio {
             $content = curl_exec($ch);
             $response = curl_getinfo($ch);
             curl_close ($ch);
+            
             if ($response['http_code'] != 200)
                 return null;
             return $content;

@@ -242,7 +242,6 @@ class Auxiliary {
         return $query_arguments;
     }
     private static function insert_image($filename) {
-        require_once(ABSPATH . 'wp-admin/includes/image.php');
         preg_match('/\?[^\?]+$/', $filename, $result);
         $new_filename = $filename;
         if ($result)
@@ -257,6 +256,7 @@ class Auxiliary {
            'post_status' => 'inherit'
         );
         $attach_id = wp_insert_attachment($attachment, $filename);
+        require_once(ABSPATH . 'wp-admin/includes/image.php');
         $attach_data = wp_generate_attachment_metadata($attach_id, $filename);
         wp_update_attachment_metadata($attach_id, $attach_data);
     }

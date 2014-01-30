@@ -12,7 +12,17 @@
     echo "<script type='application/javascript' src='" . plugins_url('../static/js/hmac_md5.js', __FILE__) . "'></script>";
     echo "<script type='application/javascript' src='" . plugins_url('../static/js/hmac.js', __FILE__) . "'></script>";
     echo "<script type='application/javascript' src='" . plugins_url('../static/js/thumbrio.wordpress.js', __FILE__) . "'></script>";
-    $s3 = new Amazon_s3_thumbrio('', $_REQUEST['page']);
+
+    function get_current_page() {
+        $page = 0;
+        if (array_key_exists('page', $_REQUEST)) {
+            $page = $_REQUEST['page'];
+        }
+        return $page;
+    }
+
+    $s3 = new Amazon_s3_thumbrio('');
+    $s3->set_page(get_current_page());
     ?>
     <style>
         .media-frame-router {
@@ -42,14 +52,16 @@
             var THUMBRIO_API_KEY = "<?php echo $s3->get_user_data('thumbrio_api_key'); ?>";
             var SETTINGS_UPLOADER_DEFAULT = JSON.parse('<?php echo get_option('thumbrio_storage_settings') ?>');
             initializeDropzone(THUMBRIO_API_KEY, AMAZON_S3_SECRET_KEY, AMAZON_S3_BUCKET_NAME, AMAZON_S3_ACCESS_KEY, SETTINGS_UPLOADER_DEFAULT);
+
             var div = document.getElementsByClassName('thumbrio-media-media-library')[0];
             var buttonElement = div.getElementsByClassName('button')[0];
             var formElement = div.getElementsByTagName('form')[0];
             insertImageIntoDatabase(buttonElement, formElement);
             selectAnImage();
             controlSelectionPanels();
+
             <?php
-            if (strlen((string)$_REQUEST['page']) == 0) {
+            if (!array_key_exists('page', $_REQUEST)) {
                 echo "getTab('Upload Files').click();";
             } else {
                 echo "getTab('Media Library').click();";
@@ -70,9 +82,8 @@
             <form method="POST" action="admin-post.php">
                 <div id="thumbrio-uploader" class="dropzone"></div>
                 <input class="thumbrio-submit button media-button button-primary button-large media-button-insert" name="submit" type="submit" value="Upload images" />
-                <input type="hidden" name="redirect_url"
-                       value="<?php echo plugins_url('thumbrio-media.php', __FILE__); ?>" />
-                <input type="hidden" name="action" value="Save_images1" />
+                <input type="hidden" name="storage" value="s3" />
+                <input type="hidden" name="action" value="Save_images_media" />
             </form>
         </div>
         <div class="thumbrio-media-media-library">
@@ -80,9 +91,9 @@
                 <?php
                     $s3->print_all_files('thumbrio-gallery', "100x100c", true);
                 ?>
-                <input name="submit2" type="submit" value="Use images" class="button button-primary"/>
-                <input type="hidden" name="redirect_url" value="<?php echo plugins_url('thumbrio-amazon-s3-services/library/thumbrio-media.php'); ?>" />
-                <input type="hidden" name="action" value="Save_images1" />
+                <input type="submit" name="submit2" value="Use images" class="button button-primary"/>
+                <input type="hidden" name="storage" value="local" />
+                <input type="hidden" name="action" value="Save_images_media" />
             </form>
         </div>
     </div>
