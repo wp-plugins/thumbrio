@@ -14,12 +14,12 @@ Serve the images in your pages through Thumbr.io.
 If you have an account in [Thumbr.io](thumbr.io) you can serve your images through it. You improve the responsiveness of your pages and save bandwith. The size of your served images are optimally computed by thumbr.io based on the size you previously set. 
 
 == Installation ==
-1. Upload the folder \"wp-thumbrio-plugin\" to the \"/wp-content/plugins/\" directory
-1. Activate the plugin through the \'Plugins\' menu in WordPress
+1. Upload the folder **wp-thumbrio-plugin** to the **/wp-content/plugins/** directory
+1. Activate the plugin through the **Plugins** menu in WordPress
 1. Once the plugin is active, you have to setup it following the Settings link
     * Introduce your web folder name
-    * Introduce your thumbr.io\'s subdomain name
-1. Push the button 'Save Changes' to thumbr.io verify your settings  
+    * Introduce your thumbr.io's subdomain name
+1. Push the button **Save Changes** to thumbr.io verify your settings  
 
 **Remark:** in order to use the plugin you need an account in [thumbr.io](thumbrio.io).
 
