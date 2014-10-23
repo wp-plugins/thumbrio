@@ -19,6 +19,7 @@ define("THUMBRIO_WORDPRESS_JS", plugins_url('static/js/thumbrio.wordpress.js', _
 define("THUMBRIO_RESPONSIVE_JS", plugins_url('static/js/thumbrio.responsive.js', __FILE__));
 define("THUMBRIO_HMAC_MD5_JS", plugins_url('static/js/hmac_md5.js', __FILE__));
 
+register_deactivation_hook(__FILE__, 'thumbrio_deactivate');
 if (is_admin()) {
     add_action('admin_init', 'thumbrio_admin_init');
     add_action('admin_menu', 'thumbrio_menu');
@@ -33,6 +34,10 @@ if (is_admin()) {
         wp_enqueue_script('thumbrio-view');
         buffer_start();
     }
+}
+
+function thumbrio_deactivate($network_id) {
+    delete_option('thumbrio_subdomain');
 }
 
 /*
