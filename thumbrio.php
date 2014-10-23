@@ -3,7 +3,7 @@
 Plugin Name: Thumbrio Services
 Plugin URL: http://thumbr.io
 Description: A plugin to serve your wordpress images through thumbr.io
-Version: 1.0
+Version: 2.0
 Author: Joaquin cuenca cuenca@thumbr.io and Thumbrio Development Team
 */
 
