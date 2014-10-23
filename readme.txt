@@ -21,7 +21,7 @@ If you have an account in [Thumbr.io](thumbr.io) you can serve your images throu
     * Introduce your thumbr.io's subdomain name
 1. Push the button **Save Changes** to thumbr.io verify your settings  
 
-**Remark:** in order to use the plugin you need an account in [thumbr.io](thumbrio.io).
+**Remark:** In order to use the plugin, you need an account in [thumbr.io](thumbrio.io).
 
 == Changelog ==
 = 2.0 =
