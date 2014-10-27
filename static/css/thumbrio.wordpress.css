@@ -2,16 +2,64 @@
 	display: none;
 }
 .logo-thumbrio {
-	background-color: #000;
+	background-color: #222;
+	max-width: 740px;
 	width: 100%;
-	height: 50px;
+	height: 100%;
+	margin: 30px;
+	margin-left: 0;
 }
+.logo-thumbrio img {
+	padding-left: 15px;
+	padding-top: 10px;
+	padding-bottom: 6px;
+}
+.th-container {
+	margin: 20px; 
+	width: 100%;
+	max-width: 700px;
+}
+.th-container p {
+	font-size: 15px;
+}
+.th-container h1 {
+	margin-bottom: 35px;
+}
+
 #webdir-input {
-	width: 40%;
+	width: 300px;
 }
 #subdomain-input {
 	width: 12%;
 }
 .form-table th {
 	width: 10%;
+}
+.remark {
+	font-weight: bold;
+}
+.italic {
+	font-style: 
+}
+.th-label-field {
+	font-weight: bold;
+	text-align: right;
+	font-size: 15px;
+	width: 100px;
+	margin-right: 15px;
+}
+.th-row-form div {
+	display: inline-block;
+}
+.th-input-field {
+	width: 300px;
+}
+.th-row-form {
+	margin: 10px;
+}
+.th-input-field input {
+	width: 100%;
+}
+#subdomain-input {
+	width: 100%;
 }
