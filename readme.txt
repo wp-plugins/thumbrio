@@ -18,7 +18,7 @@ If you have an account in [Thumbr.io](thumbr.io) you can serve your images throu
 2. Activate the plugin through the **Plugins** menu in WordPress
 3. Once the plugin is active, you have to setup it following the Settings link
     * Introduce your thumbr.io's subdomain name
-4. Push the button **Save Changes** to thumbr.io verify your settings  
+    * Push the button **Save Changes** to thumbr.io verify your settings  
 
 **Remark:** In order to use the plugin, you need an account in [thumbr.io](thumbrio.io).
 
