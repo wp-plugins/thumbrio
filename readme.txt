@@ -22,7 +22,7 @@ This plugin makes the images in your blog responsive, adapting them to the size 
 
 == Changelog ==
 
-=2.0.1 =
+= 2.0.1 =
 * Improve Setting Up process
 
 = 2.0 =
