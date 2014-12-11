@@ -222,18 +222,19 @@ function get_info_from_query_arguments($query_string) {
     preg_match('/email=([^&]+)/', $query_string, $results_email);
     preg_match('/signup=([^&]+)/', $query_string, $results_signup);
     preg_match('/error=([^&]+)/', $query_string, $results_error);
+
     $subdomain = null;
     $email = null;
     $signup = null;
     $error = null;
     if (count($results_subdomain) > 1) {
-        $subdomain = $results_subdomain[1];
+        $subdomain = urldecode($results_subdomain[1]);
     }
     if (count($results_email) > 1) {
-        $email = $results_email[1];
+        $email = urldecode($results_email[1]);
     }
     if (count($results_signup) > 1) {
-        $signup = $results_signup[1];
+        $signup = urldecode($results_signup[1]);
     }
     if (count($results_error) > 1) {
         $error = urldecode($results_error[1]);
