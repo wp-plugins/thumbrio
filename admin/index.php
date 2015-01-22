@@ -27,7 +27,7 @@ function thumbrio_plugin_action_links($links) {
 function thumbrio_menu() {
     $page = add_options_page('Thumbr.io Menu', 'Thumbr.io', 'manage_options', 'thumbrio', 'thumbrio_options');
     add_action("load-$page", 'add_help_tabs');
-    add_dashboard_page('Thumbrio about', null, 'read', "thumbrio_about", 'thumbrio_about');
+    add_dashboard_page('Thumbr.io about', null, 'read', "thumbrio_about", 'thumbrio_about');
 }
 
 function thumbrio_admin_head() {
@@ -44,11 +44,11 @@ function thumbrio_about() {
     wp_enqueue_style('thumbrio-wordpress', THUMBRIO_WORDPRESS_CSS);
 ?>
     <div class="th-container">
-        <h1>Thumbrio plugin</h1>
+        <h1>Thumbr.io plugin</h1>
         <div>
             <h3>General Description</h3>
 
-            <p>Thumbrio is a web application created to serve images optimally. Meaning, deliver 
+            <p>Thumbr.io is a web application created to serve images optimally. Meaning, deliver 
             images at the correct resolution and size for any device. 
             This translates in a more efficient bandwidth consumption of your visitors. 
             It is, particularly, important for them that access your website through slow connections.</p>
@@ -185,16 +185,16 @@ function print_info_wordpress($subdomain, $email) {
     <div class="th-row">
         <div class="th-row-form">
             <div class="th-label-field"> Image local folder  </div>
-            <div class="th-input-field"> <?php echo get_webdir() ?></div>
+            <div class="th-input-field"> <?= htmlentities(get_webdir()); ?></div>
         </div>
         <div class="th-row-form">    
             <div class="th-label-field"> Thumbr.io subdomain </div>
-            <div class="th-input-field"> <?php echo "$subdomain"; ?>
+            <div class="th-input-field"> <?= htmlentities("$subdomain"); ?>
             </div>
         </div>
         <div class="th-row-form">    
             <div class="th-label-field"> Thumbr.io login email </div>
-            <div class="th-input-field"> <?php echo $email?: get_option(OPTION_EMAIL); ?>
+            <div class="th-input-field"> <?= htmlentities($email?: get_option(OPTION_EMAIL)); ?>
             </div>
         </div>
     </div>
@@ -212,7 +212,7 @@ function get_validate_url($current_url) {
     $username = (get_option(OPTION_EMAIL)?: get_option('admin_email'));
     $webdir = get_webdir();
     $wp_domain = $current_url;
-    $qa = "username=$username&webdir=$webdir&wp_domain=$wp_domain";
+    $qa = "username=" . urlencode($username) . "&webdir=" . urlencode($webdir) . "&wp_domain=" . urlencode($wp_domain);
     $url = THUMBRIO_VALIDATE_SUBDOMAIN . "?$qa";
     return $url;
 }
@@ -269,17 +269,17 @@ function print_settings_login_warning($subdomain, $email) {
 ?>  
     <div class="th-container">
         <h1>Validation of Thumbr.io settings<h1>
-        <h3>Welcome  <?php echo $email;?></h3>
+        <h3>Welcome  <?=htmlentities($email); ?></h3>
         <p>
-        Your images in <strong><?php echo get_webdir() ?></strong>
-        will be served by Thumbr.io through <strong><?php echo "http://$subdomain/"; ?></strong>.
+        Your images in <strong><?=htmlentities(get_webdir()); ?></strong>
+        will be served by Thumbr.io through <strong><?=htmlentities("http://$subdomain/");?></strong>.
         If you agree, save changes.
         </p>
         <form method="post" action="admin-post.php">
             <?php settings_fields('thumbrio-group');?>
             <input type="hidden" name="action" value="validate" />
-            <input type="hidden" name="<?php echo OPTION_EMAIL; ?>" value="<?php echo "$email"; ?>" />
-            <input type="hidden" name="<?php echo OPTION_SUBDOMAIN; ?>" value="<?php echo "$subdomain"; ?>" />
+            <input type="hidden" name="<?php echo OPTION_EMAIL; ?>" value="<?=htmlentities("$email"); ?>" />
+            <input type="hidden" name="<?php echo OPTION_SUBDOMAIN; ?>" value="<?=htmlentities("$subdomain"); ?>" />
             <div class="th-row-form">
                 <div class="th-label-field" style="margin-right:0;"> 
                     <?php submit_button ("Save", 'primary', 'submit-ok', false); ?></div>

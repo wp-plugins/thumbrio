@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: Thumbrio Services
+Plugin Name: Thumbr.io Services
 Plugin URL: http://thumbr.io
 Description: A plugin to serve your wordpress images through thumbr.io
 Version: 2.01
-Author: Joaquin cuenca cuenca@thumbr.io and Thumbrio Development Team
+Author: Joaquin cuenca cuenca@thumbr.io and Thumbr.io Development Team
 */
 require_once (dirname(__FILE__) . '/admin/index.php');
 require_once (dirname(__FILE__) . '/backend/index.php');
