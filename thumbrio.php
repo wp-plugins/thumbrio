@@ -1,17 +1,18 @@
 <?php
 /*
-Plugin Name: Thumbr.io Services
+Plugin Name: Thumbr.io 
 Plugin URL: http://thumbr.io
 Description: A plugin to serve your wordpress images through thumbr.io
-Version: 2.01
-Author: Joaquin cuenca cuenca@thumbr.io and Thumbr.io Development Team
+Version: 2.1.1
+Author: Thumbr.io
+Author URI: https://www.thumbr.io/
 */
 require_once (dirname(__FILE__) . '/admin/index.php');
 require_once (dirname(__FILE__) . '/backend/index.php');
 
 
-define("THUMBRIO_BACKEND", "http://api.thumbr.io");
-define("THUMBRIO_FRONTEND", "http://www.thumbr.io");
+define("THUMBRIO_BACKEND", "https://cdn.api.thumbr.io");
+define("THUMBRIO_FRONTEND", "https://www.thumbr.io");
 define("THUMBRIO_FRONTEND_SECURE", "https://www.thumbr.io");
 define("THUMBRIO_CREATE_ACCOUNT", THUMBRIO_FRONTEND_SECURE . '/wordpress/signup');
 define("THUMBRIO_VALIDATE_SUBDOMAIN",  THUMBRIO_FRONTEND_SECURE . '/wordpress/landing_validate');
