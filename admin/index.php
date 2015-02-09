@@ -58,7 +58,7 @@ function thumbrio_about() {
                 a bigger bandwidth capacity and personalized image URLs.</p> 
 
             <h4>New Thumbr.io's User</h4>
-            <p>By using this plugin you accept the <a href="http://www.thumbr.io/tos"> Terms of Use</a>.</p>
+            <p>By using this plugin you accept the <a href="https://www.thumbr.io/tos"> Terms of Use</a>.</p>
         </div>        
         <div>
             <a href="/wp-admin/options-general.php?page=thumbrio">Go to Settings</a>
@@ -131,7 +131,7 @@ function add_help_tabs() {
     foreach($tab_keys as $tab) {
         $screen->add_help_tab($tabs[$tab]);
     }
-    $screen->set_help_sidebar('Powered by <a href="http://www.thumbr.io">thumbr.io</a>');
+    $screen->set_help_sidebar('Powered by <a href="https://www.thumbr.io">thumbr.io</a>');
 }
 
 function help_setting($concept) { 
@@ -202,8 +202,8 @@ function print_info_wordpress($subdomain, $email) {
 
 function print_head_logo(){ ?>
     <div class="logo-thumbrio">
-        <a href="http://wwww.thumbr.io">
-            <img src="http://www.thumbr.io/img/thumbrio-gray.png"/>
+        <a href="https://wwww.thumbr.io">
+            <img src="https://www.thumbr.io/img/thumbrio-gray.png"/>
         </a>
     </div>
 <?php } 
@@ -272,7 +272,7 @@ function print_settings_login_warning($subdomain, $email) {
         <h3>Welcome  <?=htmlentities($email); ?></h3>
         <p>
         Your images in <strong><?=htmlentities(get_webdir()); ?></strong>
-        will be served by Thumbr.io through <strong><?=htmlentities("http://$subdomain/");?></strong>.
+        will be served by Thumbr.io through <strong><?=htmlentities("https://$subdomain/");?></strong>.
         If you agree, save changes.
         </p>
         <form method="post" action="admin-post.php">
@@ -407,7 +407,7 @@ function print_settings_yes_or_no($current_url) {
         <h1>Set up Thumbr.io plugin</h1>
         <p>This plugin makes the images in your blog responsive, adapting them to the 
             size and resolution of your users' devices. It depends on a service
-            (<a href="http://wwww.thumbr.io">thumbr.io</a>) to resize dinamically
+            (<a href="https://wwww.thumbr.io">thumbr.io</a>) to resize dinamically
             your images.
         </p>
         <div id="th-button-container">
@@ -507,7 +507,7 @@ function thumbrio_admin_post_signup() {
     $res = make_a_post(THUMBRIO_CREATE_ACCOUNT, $data);
     $subdomain = $res['message'];
     if ($res['status']) {
-        update_option(OPTION_SUBDOMAIN, "http://$subdomain/");
+        update_option(OPTION_SUBDOMAIN, "https://$subdomain/");
         update_option(OPTION_EMAIL, $data['username']);
         $next_url = add2url($_REQUEST['_wp_http_referer'], null);
     } else {
@@ -524,7 +524,7 @@ function thumbrio_admin_post_validate() {
     }
     if (array_key_exists('submit-ok', $_REQUEST)) {
         update_option(OPTION_EMAIL, $_REQUEST[OPTION_EMAIL]);
-        update_option(OPTION_SUBDOMAIN, 'http://' . $_REQUEST[OPTION_SUBDOMAIN] . '/');
+        update_option(OPTION_SUBDOMAIN, 'https://' . $_REQUEST[OPTION_SUBDOMAIN] . '/');
     }
     $next_url = add2url($_REQUEST['_wp_http_referer'], null);
     wp_redirect($next_url, 302);
