@@ -10,9 +10,9 @@ require_once (dirname(__FILE__) . '/admin/index.php');
 require_once (dirname(__FILE__) . '/backend/index.php');
 
 
-define("THUMBRIO_BACKEND", "http://local.api.thumbr.io");
-define("THUMBRIO_FRONTEND", "http://local.thumbr.io");
-define("THUMBRIO_FRONTEND_SECURE", "https://local.thumbr.io");
+define("THUMBRIO_BACKEND", "http://api.thumbr.io");
+define("THUMBRIO_FRONTEND", "http://www.thumbr.io");
+define("THUMBRIO_FRONTEND_SECURE", "https://www.thumbr.io");
 define("THUMBRIO_CREATE_ACCOUNT", THUMBRIO_FRONTEND_SECURE . '/wordpress/signup');
 define("THUMBRIO_VALIDATE_SUBDOMAIN",  THUMBRIO_FRONTEND_SECURE . '/wordpress/landing_validate');
 
