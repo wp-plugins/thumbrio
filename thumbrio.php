@@ -3,7 +3,7 @@
 Plugin Name: Thumbr.io 
 Plugin URL: http://thumbr.io
 Description: A plugin to serve your wordpress images through thumbr.io
-Version: 2.1.2
+Version: 2.1.3
 Author: Thumbr.io
 Author URI: https://www.thumbr.io/
 */
