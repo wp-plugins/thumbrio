@@ -20,6 +20,16 @@ This plugin makes the images in your blog responsive, adapting them to the size 
     * If you a thumbr.io's account you could use it.
     * If you are not a Thumbr.io's user a new account will be built.
 
+== Screenshots ==
+
+1. Link the plugin to a Thumbr.io's account.
+
+2. Set up the plugin.
+
+3. Select a custom subdomain.
+
+4. Synchronize the external storage. 
+
 == Changelog ==
 
 = 2.1.3 =
