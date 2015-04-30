@@ -42,7 +42,7 @@ En el que desee usar un bucket de Amazon S3 como storage de sus imágenes. Debe 
     2. El bucket de Amazon S3 debe poseer para la cuenta de acreditada los permisos de listado, upload, delete (Estos últimos si desea hacer uso del plugin para subir y borrar imágenes en el bucket).
     3. En el bucket de Amazon S3 la CORS configuration debe ser algo como
 
-```
+`
 <?xml version="1.0" encoding="UTF-8"?>
 <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
     <CORSRule>
@@ -55,7 +55,7 @@ En el que desee usar un bucket de Amazon S3 como storage de sus imágenes. Debe 
         <AllowedHeader>*</AllowedHeader>
     </CORSRule>
 </CORSConfiguration>
-```
+`
 
 
 * Luego de aceptar la configuración aparece una página donde podrá cambiar en lo sucesivo la configuración del plugin o en el caso de hacer uso de un origen externo (Amazon o thumbr.io subdomain) puede actualizar la información en la base datos de modos que las imágenes en almacenadas externamentes sean accesibles. Luego de producirse la synchronization sus imágenes seran mostradas, en la librería multimedia.
