@@ -56,7 +56,8 @@ This plugin makes the images in your blog responsive, adapting them to the size 
                 <AllowedHeader>*</AllowedHeader>
             </CORSRule>
         </CORSConfiguration>
-`
+
+
     * Custom Origin: Si ya tiene configurados subdominios en Thumbr.io que de sean compatibles con el plugin, estos serán listados. Puedes seleccinar entonces el que desees usar (ver [Screenshot 3](http://wordpress.org/plugins/thumbrio/screenshots)).
 * Sychronization: En el caso de hacer uso de un origen externo (Amazon o Thumbr.io's subdomain) puedes actualizar la información en la base datos de modos que las imágenes en almacenadas externamentes sean accesibles. Luego de producirse la synchronization las imágenes seran mostradas en la librería multimedia. Esta operación puede tardar varios segundos (ver [Screenshot 4](http://wordpress.org/plugins/thumbrio/screenshots)).
 
