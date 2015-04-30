@@ -34,33 +34,32 @@ This plugin makes the images in your blog responsive, adapting them to the size 
 
 = Set-up guide =
 
-* Para configurar el uso del servicio de Thumbr.io puede crear una cuenta nueva o usar una que ya estuviera creada. Crear una cuenta en thumbr.io solo requiere de una direccion de email válida y un password (ver [screenshot](http://wordpress.org/plugins/thumbrio/screenshots)).
+* Acceder al servicio de Thumbr.io: Debe crear una cuenta o usar una que ya estuviera creada. Crear una cuenta en Thumbr.io solo requiere de una direccion de email válida y un password (ver [screenshot 1](http://wordpress.org/plugins/thumbrio/screenshots)).
 
-* Luego de esto debe configurar el servicio esto es, seleccionar el origen de sus imágenes. Si desea usar almacenamiento local (configuración por defecto) basta con hacer check en la opción.
-En el que desee usar un bucket de Amazon S3 como storage de sus imágenes. Debe seguir los siguientes pasos:
-    1. En la página de settings las credentiales para acceder a la misma ( ver [screenshot](http://wordpress.org/plugins/thumbrio/screenshots)).
-    2. El bucket de Amazon S3 debe poseer para la cuenta de acreditada los permisos de listado, upload, delete (Estos últimos si desea hacer uso del plugin para subir y borrar imágenes en el bucket).
-    3. En el bucket de Amazon S3 la CORS configuration debe ser algo como
+* Configurar el servicio:  Seleccionar el origen de sus imágenes. El plugin le brinda tres posibilidades:
+    * Almacenamiento Local: Esta es la configuración por defecto basta con hacer check en la opción.
+    * Amazon S3 bucket: En el caso que desee usar un bucket de Amazon S3 como storage de sus imágenes. Debe seguir los siguientes pasos:
+        1. En la página de settings introduzca las credentiales de acceso ( ver [screenshot 2](http://wordpress.org/plugins/thumbrio/screenshots)).
+        2. El bucket de Amazon S3 debe poseer para la cuenta de acreditada los permisos de listado, upload, delete (Estos últimos si desea hacer uso del plugin para subir y borrar imágenes en el bucket).
+        3. En el bucket de Amazon S3 la CORS configuration debe ser algo como
+        `
+        <?xml version="1.0" encoding="UTF-8"?>
+        <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+            <CORSRule>
+                <AllowedOrigin>*</AllowedOrigin>
+                <AllowedMethod>GET</AllowedMethod>
+                <AllowedMethod>POST</AllowedMethod>
+                <AllowedMethod>PUT</AllowedMethod>
+                <AllowedMethod>DELETE</AllowedMethod>
+                <MaxAgeSeconds>3000</MaxAgeSeconds>
+                <AllowedHeader>*</AllowedHeader>
+            </CORSRule>
+        </CORSConfiguration>
+        `
+    * Custom Origin: Si ya tiene configurados subdominios en Thumbr.io que de sean compatibles con el plugin, estos serán listados. Puedes seleccinar entonces el que desees usar (ver [Screenshot 3](http://wordpress.org/plugins/thumbrio/screenshots)).
+* Sychronization: En el caso de hacer uso de un origen externo (Amazon o Thumbr.io's subdomain) puedes actualizar la información en la base datos de modos que las imágenes en almacenadas externamentes sean accesibles. Luego de producirse la synchronization las imágenes seran mostradas en la librería multimedia. Esta operación puede tardar varios segundos.
 
-`
-<?xml version="1.0" encoding="UTF-8"?>
-<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-    <CORSRule>
-        <AllowedOrigin>*</AllowedOrigin>
-        <AllowedMethod>GET</AllowedMethod>
-        <AllowedMethod>POST</AllowedMethod>
-        <AllowedMethod>PUT</AllowedMethod>
-        <AllowedMethod>DELETE</AllowedMethod>
-        <MaxAgeSeconds>3000</MaxAgeSeconds>
-        <AllowedHeader>*</AllowedHeader>
-    </CORSRule>
-</CORSConfiguration>
-`
-
-
-* Luego de aceptar la configuración aparece una página donde podrá cambiar en lo sucesivo la configuración del plugin o en el caso de hacer uso de un origen externo (Amazon o thumbr.io subdomain) puede actualizar la información en la base datos de modos que las imágenes en almacenadas externamentes sean accesibles. Luego de producirse la synchronization sus imágenes seran mostradas, en la librería multimedia.
-
-* A la configuración de Thumbr.io podrá acceder en cualquier momento por el menú Settings->Thumbr.io.
+* A la configuración de Thumbr.io podrá acceder en cualquier momento por el menú **Settings->Thumbr.io**.
 
 = Full reference =
 
