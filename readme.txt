@@ -34,12 +34,12 @@ This plugin makes the images in your blog responsive, adapting them to the size 
 
 = Set-up guide =
 
-* Acceder al servicio de Thumbr.io: Debe crear una cuenta o usar una que ya estuviera creada. Crear una cuenta en Thumbr.io solo requiere de una direccion de email válida y un password (ver [screenshot 1](http://wordpress.org/plugins/thumbrio/screenshots)).
+* Acceder al servicio de Thumbr.io: Debe crear una cuenta o usar una que ya estuviera creada. Crear una cuenta en Thumbr.io solo requiere de una direccion de email válida y un password (ver [Screenshot 1](http://wordpress.org/plugins/thumbrio/screenshots)).
 
 * Configurar el servicio:  Seleccionar el origen de sus imágenes. El plugin le brinda tres posibilidades:
     * Almacenamiento Local: Esta es la configuración por defecto basta con hacer check en la opción.
     * Amazon S3 bucket: En el caso que desee usar un bucket de Amazon S3 como storage de sus imágenes. Debe seguir los siguientes pasos:
-        1. En la página de settings introduzca las credentiales de acceso ( ver [screenshot 2](http://wordpress.org/plugins/thumbrio/screenshots)).
+        1. En la página de settings introduzca las credentiales de acceso ( ver [Screenshot 2](http://wordpress.org/plugins/thumbrio/screenshots)).
         2. El bucket de Amazon S3 debe poseer para la cuenta de acreditada los permisos de listado, upload, delete (Estos últimos si desea hacer uso del plugin para subir y borrar imágenes en el bucket).
         3. En el bucket de Amazon S3 la CORS configuration debe ser algo como
 
