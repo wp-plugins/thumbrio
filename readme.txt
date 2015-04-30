@@ -36,9 +36,10 @@ This plugin makes the images in your blog responsive, adapting them to the size 
 
 1. Acceder al servicio de Thumbr.io: Debe crear una cuenta o usar una que ya estuviera creada. Crear una cuenta en Thumbr.io solo requiere de una direccion de email válida y un password (ver [Screenshot 1](http://wordpress.org/plugins/thumbrio/screenshots)).
 
-2. Configurar el servicio:  Seleccionar el origen de sus imágenes. El plugin le brinda tres posibilidades:
-    * Almacenamiento Local: Esta es la configuración por defecto basta con hacer check en la opción.
-    * Amazon S3 bucket: En el caso que desee usar un bucket de Amazon S3 como storage de sus imágenes. Debe seguir los siguientes pasos:
+2. Configurar el servicio:  Seleccionar el origen de sus imágenes. El plugin le brinda tres posibilidades
+_Almacenamiento Local_: Esta es la configuración por defecto basta con hacer check en la opción.
+
+_Amazon S3 bucket_: En el caso que desee usar un bucket de Amazon S3 como storage de sus imágenes. Debe seguir los siguientes pasos:
         1. En la página de settings introduzca las credentiales de acceso (ver [Screenshot 2](http://wordpress.org/plugins/thumbrio/screenshots)).
         2. El bucket de Amazon S3 debe poseer para la cuenta de acreditada los permisos de listado, upload, delete (Estos últimos si desea hacer uso del plugin para subir y borrar imágenes en el bucket).
         3. En el bucket de Amazon S3 la CORS configuration debe ser algo como
@@ -57,8 +58,9 @@ This plugin makes the images in your blog responsive, adapting them to the size 
             </CORSRule>
         </CORSConfiguration>
 `
-.
-    * Custom Origin: Si ya tiene configurados subdominios en Thumbr.io que de sean compatibles con el plugin, estos serán listados. Puedes seleccinar entonces el que desees usar (ver [Screenshot 3](http://wordpress.org/plugins/thumbrio/screenshots)).
+
+_Custom Origin_: Si ya tiene configurados subdominios en Thumbr.io que de sean compatibles con el plugin, estos serán listados. Puedes seleccinar entonces el que desees usar (ver [Screenshot 3](http://wordpress.org/plugins/thumbrio/screenshots)).
+
 3. Sychronization: En el caso de hacer uso de un origen externo (Amazon o Thumbr.io's subdomain) puedes actualizar la información en la base datos de modos que las imágenes en almacenadas externamentes sean accesibles. Luego de producirse la synchronization las imágenes seran mostradas en la librería multimedia. Esta operación puede tardar varios segundos (ver [Screenshot 4](http://wordpress.org/plugins/thumbrio/screenshots)).
 
 * A la configuración de Thumbr.io podrá acceder en cualquier momento por el menú **Settings->Thumbr.io**.
