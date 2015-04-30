@@ -49,7 +49,7 @@ This plugin makes the images in your blog responsive, adapting them to the size 
 
 = CORS Configuration =
 
-En la consola de Amazon S3 bucket debe configurar una politíca CORS ([Screenshot 4](http://wordpress.org/plugins/thumbrio/screenshots)). Sírvase del siguiente ejemplo.
+En la consola de Amazon S3 bucket debe configurar una politíca CORS ([Screenshot 5](http://wordpress.org/plugins/thumbrio/screenshots)). Sírvase del siguiente ejemplo.
 
 `
     <?xml version="1.0" encoding="UTF-8"?>
