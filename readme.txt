@@ -34,38 +34,37 @@ This plugin makes the images in your blog responsive, adapting them to the size 
 
 = Set-up guide =
 
-1. Acceder al servicio de Thumbr.io: Debe crear una cuenta o usar una que ya estuviera creada. Crear una cuenta en Thumbr.io solo requiere de una direccion de email válida y un password (ver [Screenshot 1](http://wordpress.org/plugins/thumbrio/screenshots)).
+1. Acceder al servicio de Thumbr.io: Debe crear una cuenta o usar una que ya estuviera creada. Crear una cuenta en Thumbr.io solo requiere de una direccion de email válida y un password ([Screenshot 1](http://wordpress.org/plugins/thumbrio/screenshots)).
 
 2. Configurar el servicio:  Seleccionar el origen de sus imágenes. El plugin le brinda tres posibilidades
-
     * _Almacenamiento Local_. Esta es la configuración por defecto basta con hacer check en la opción.
-
-    * _Custom Origin_. Si ya tiene configurados subdominios en Thumbr.io que de sean compatibles con el plugin, estos serán listados. Puedes seleccinar entonces el que desees usar (ver [Screenshot 3](http://wordpress.org/plugins/thumbrio/screenshots)).
-
     * _Amazon S3 bucket_. En el caso que desee usar un bucket de Amazon S3 como storage de sus imágenes. Debe seguir los siguientes pasos:
         1. En la página de settings introduzca las credentiales de acceso (ver [Screenshot 2](http://wordpress.org/plugins/thumbrio/screenshots)).
         2. El bucket de Amazon S3 debe poseer para la cuenta de acreditada los permisos de listado, upload, delete (Estos últimos si desea hacer uso del plugin para subir y borrar imágenes en el bucket).
-        3. En el bucket de Amazon S3 la CORS configuration debe ser algo como
+        3. Debe establecer una CORS configuration del bucket de Amazon S3 conveniente.
+    * _Custom Origin_. Si ya tiene configurados subdominios en Thumbr.io que de sean compatibles con el plugin, estos serán listados. Puedes seleccinar entonces el que desees usar ([Screenshot 3](http://wordpress.org/plugins/thumbrio/screenshots)).
+3. Sychronization: En el caso de hacer uso de un origen externo (Amazon o Thumbr.io's subdomain) puedes actualizar la información en la base datos de modos que las imágenes en almacenadas externamentes sean accesibles. Luego de producirse la synchronization las imágenes seran mostradas en la librería multimedia. Esta operación puede tardar varios segundos ([Screenshot 4](http://wordpress.org/plugins/thumbrio/screenshots)).
 
+4. A la configuración de Thumbr.io podrá acceder en cualquier momento por el menú **Settings->Thumbr.io**.
 
-    `
-        <?xml version="1.0" encoding="UTF-8"?>
-        <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-            <CORSRule>
-                <AllowedOrigin>*</AllowedOrigin>
-                <AllowedMethod>GET</AllowedMethod>
-                <AllowedMethod>POST</AllowedMethod>
-                <AllowedMethod>PUT</AllowedMethod>
-                <AllowedMethod>DELETE</AllowedMethod>
-                <MaxAgeSeconds>3000</MaxAgeSeconds>
-                <AllowedHeader>*</AllowedHeader>
-            </CORSRule>
-        </CORSConfiguration>
-    `
+= CORS Configuration =
 
-3. Sychronization: En el caso de hacer uso de un origen externo (Amazon o Thumbr.io's subdomain) puedes actualizar la información en la base datos de modos que las imágenes en almacenadas externamentes sean accesibles. Luego de producirse la synchronization las imágenes seran mostradas en la librería multimedia. Esta operación puede tardar varios segundos (ver [Screenshot 4](http://wordpress.org/plugins/thumbrio/screenshots)).
+En la consola de Amazon S3 bucket debe configurar una politíca CORS ([Screenshot 4](http://wordpress.org/plugins/thumbrio/screenshots)). Sírvase del siguiente ejemplo.
 
-* A la configuración de Thumbr.io podrá acceder en cualquier momento por el menú **Settings->Thumbr.io**.
+`
+    <?xml version="1.0" encoding="UTF-8"?>
+    <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+        <CORSRule>
+            <AllowedOrigin>*</AllowedOrigin>
+            <AllowedMethod>GET</AllowedMethod>
+            <AllowedMethod>POST</AllowedMethod>
+            <AllowedMethod>PUT</AllowedMethod>
+            <AllowedMethod>DELETE</AllowedMethod>
+            <MaxAgeSeconds>3000</MaxAgeSeconds>
+            <AllowedHeader>*</AllowedHeader>
+        </CORSRule>
+    </CORSConfiguration>
+`
 
 = Full reference =
 
