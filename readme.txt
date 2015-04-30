@@ -42,7 +42,8 @@ This plugin makes the images in your blog responsive, adapting them to the size 
         1. En la página de settings introduzca las credentiales de acceso ( ver [screenshot 2](http://wordpress.org/plugins/thumbrio/screenshots)).
         2. El bucket de Amazon S3 debe poseer para la cuenta de acreditada los permisos de listado, upload, delete (Estos últimos si desea hacer uso del plugin para subir y borrar imágenes en el bucket).
         3. En el bucket de Amazon S3 la CORS configuration debe ser algo como
-        `
+
+`
         <?xml version="1.0" encoding="UTF-8"?>
         <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
             <CORSRule>
@@ -55,7 +56,7 @@ This plugin makes the images in your blog responsive, adapting them to the size 
                 <AllowedHeader>*</AllowedHeader>
             </CORSRule>
         </CORSConfiguration>
-        `
+`
     * Custom Origin: Si ya tiene configurados subdominios en Thumbr.io que de sean compatibles con el plugin, estos serán listados. Puedes seleccinar entonces el que desees usar (ver [Screenshot 3](http://wordpress.org/plugins/thumbrio/screenshots)).
 * Sychronization: En el caso de hacer uso de un origen externo (Amazon o Thumbr.io's subdomain) puedes actualizar la información en la base datos de modos que las imágenes en almacenadas externamentes sean accesibles. Luego de producirse la synchronization las imágenes seran mostradas en la librería multimedia. Esta operación puede tardar varios segundos.
 
