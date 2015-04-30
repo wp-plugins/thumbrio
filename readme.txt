@@ -38,10 +38,11 @@ This plugin makes the images in your blog responsive, adapting them to the size 
 
 * Luego de esto debe configurar el servicio esto es, seleccionar el origen de sus imágenes. Si desea usar almacenamiento local (configuración por defecto) basta con hacer check en la opción.
 En el que desee usar un bucket de Amazon S3 como storage de sus imágenes. Debe seguir los siguientes pasos:
-    1. En la página de settings las credentiales para acceder a la misma ([ Ver screenshot](http://wordpress.org/plugins/thumbrio/)).
+    1. En la página de settings las credentiales para acceder a la misma ( ver [screenshot](http://wordpress.org/plugins/thumbrio/screenshots)).
     2. El bucket de Amazon S3 debe poseer para la cuenta de acreditada los permisos de listado, upload, delete (Estos últimos si desea hacer uso del plugin para subir y borrar imágenes en el bucket).
     3. En el bucket de Amazon S3 la CORS configuration debe ser algo como
-    ```
+
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
     <CORSRule>
@@ -54,7 +55,7 @@ En el que desee usar un bucket de Amazon S3 como storage de sus imágenes. Debe 
         <AllowedHeader>*</AllowedHeader>
     </CORSRule>
 </CORSConfiguration>
-    ```
+```
 
 
 * Luego de aceptar la configuración aparece una página donde podrá cambiar en lo sucesivo la configuración del plugin o en el caso de hacer uso de un origen externo (Amazon o thumbr.io subdomain) puede actualizar la información en la base datos de modos que las imágenes en almacenadas externamentes sean accesibles. Luego de producirse la synchronization sus imágenes seran mostradas, en la librería multimedia.
@@ -63,7 +64,7 @@ En el que desee usar un bucket de Amazon S3 como storage de sus imágenes. Debe 
 
 = Full reference =
 
-Visit [Thumbr.io](https://thumbr.io/docs) to get information about our service and plans.
+Visit [Thumbr.io](https://thumbr.io) to get information about our service and plans.
 
 == Changelog ==
 
