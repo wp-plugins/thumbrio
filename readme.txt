@@ -11,13 +11,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Serve the images in your pages through Thumbr.io.
 
 == Description ==
-This plugin makes the images in your blog responsive, adapting them to the size and resolution of your users' devices. It depends on a service (thumbr.io) to resize dinamically your images.
+This plugin makes the images in your blog responsive, adapting them to the size and resolution of your users' devices. It depends on a service [thumbr.io](https://thumbr.io) to resize dinamically your images.
 
 == Installation ==
 1. Upload the folder **wp-thumbrio-plugin** to the **/wp-content/plugins/** directory
 2. Activate the plugin through the **Plugins** menu in WordPress
 3. Once the plugin is active, you have to setup it following the Settings link
-    * If you a thumbr.io's account you could use it.
+    * If you a Thumbr.io's account you could use it.
     * If you are not a Thumbr.io's user a new account will be built.
 
 == Screenshots ==
@@ -68,7 +68,7 @@ En la consola de Amazon S3 bucket debe configurar una politíca CORS ([Screensho
 
 = Full reference =
 
-Visit [Thumbr.io](https://thumbr.io) to get information about our service and plans.
+Visit [thumbr.io](https://thumbr.io) to get information about our service and plans.
 
 == Changelog ==
 
@@ -88,7 +88,7 @@ Visit [Thumbr.io](https://thumbr.io) to get information about our service and pl
 = 2.0 =
 * Serve image from your local wordpress static repository
 * Easier Setting Up process
-* Improve integration with [thumbr.io](thumbr.io)
+* Improve integration with [thumbr.io](https://thumbr.io)
 
 = 1.0 =
 * First release
