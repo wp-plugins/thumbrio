@@ -1,8 +1,4 @@
-#hiddeniframe {
-	display: none;
-}
 .logo-thumbrio {
-	/*background-color: #222;*/
 	max-width: 720px;
 	width: 100%;
 	height: 1px;
@@ -16,14 +12,6 @@
 	height: 40px;
 	float: right;
 }
-.th-container {
-	margin: 20px; 
-	width: 100%;
-	max-width: 700px;
-}
-.hide {
-	display: none;
-}
 .th-container p {
 	font-size: 15px;
 }
@@ -31,14 +19,8 @@
 	margin-bottom: 35px;
 	margin-top: 20px;
 }
-.show-block {
-	display: block;
-}
-#webdir-input {
-	width: 300px;
-}
-#subdomain-input {
-	width: 12%;
+.hide {
+	display: none;
 }
 .form-table th {
 	width: 10%;
@@ -49,12 +31,25 @@
 .italic {
 	font-style: 
 }
+p.th-inter {
+	line-height: 0.5;
+}
+.th-label-text {
+	text-align: right;
+	font-size: 15px;
+	width: 180px;
+	margin-right: 10px;
+	display:inline-block;
+	margin-bottom: 10px;
+}
 .th-label-field {
 	font-weight: bold;
 	text-align: right;
 	font-size: 15px;
 	width: 200px;
 	margin-right: 15px;
+	display:inline-block;
+	margin-bottom: 25px;
 }
 .th-row-form div {
 	display: inline-block;
@@ -63,53 +58,19 @@
 	width: 360px;
 	font-size: 15px;
 	text-align: left;
+	display:inline-block;
 }
 .th-row-form {
-	margin: 20px;
+	margin: 0;
+	font-size: 15px;
 }
 .th-input-field input {
 	width: 100%;
 }
-#subdomain-input {
-	width: 100%;
-}
-#first-question-menu {
-	width: 50%;
-}
-#first-question-menu > * {
-	display: inline-block;
-}
-#first-question-menu p {
-	width: 22%;
-}
-.th-center {
-	margin: auto;
-}
-.th-center-childs {
-	text-align: center;
-}
-.th-in-field {
-	font-size: 17px;
-}
-.th-w-60 {
-	width: 60%;
-}
-#th-button-container {
-	margin-top: 50px;
-	margin-bottom: 50px;
-	text-align: center;
-}
-#th-old-user, #th-new-user {
-	display: inline-block;
-}
-.th-separator {
-	min-width: 100px;
-	max-width: 150px;
-	display: inline-block;
-}
-#explanation-old, #explanation-new {
-	display: none; 
-}
+.th-button-container {
+	margin-top: 20px;
+	margin-bottom: 20px;
+} 
 #th-admin-loging {
 	display: initial;
 }
@@ -119,15 +80,110 @@
 p.font-small {
 	font-size: 12px;
 }
-#subdomain {
-	font-weight: bold;
+p.th-remark {
+	font-style: italic;
+    color: #666;
+    font-size: 13px;
 }
-.th-hidden {
+#th-submit-button {
+	vertical-align: baseline;
+} 
+.th-options > p, .th-options > div {
+	margin-left: 28px;
+}
+#th-amazon-options {
 	display: none;
+  	font-size: 80%;
+  	padding: 12px 20px;
+	margin-left: 50px;
 }
-.th-inter-button {
-	vertical-align: sub;
-	text-align: center;
-	width:35px;
+#th-amazon-options label {
+	font-weight: bold;
 	display: inline-block;
+	width: 130px;	
+}
+
+#th-amazon-options input {
+	width: 320px;
+}
+
+#th-custom-origin {
+	display: none;
+	margin-left: 50px;
+}
+
+.th-highlight {
+	-webkit-animation: th-highlight-animation 2s;
+	animation: th-highlight-animation 2s;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes th-highlight-animation {
+    0% { background: auto; }
+    5% { background: #FFD700; }
+    20% { background: #FFD700; }
+    100% { background: auto; }
+}
+
+/* Standard syntax */
+@keyframes th-highlight-animation {
+    0% { background: auto; }
+    5% { background: #FFD700; }
+    20% { background: #FFD700; }
+    100% { background: auto; }
+}
+
+.th-custom-origin-row {
+	margin-bottom: 10px;
+	padding: 8px 12px;
+	transition: background-color 0.2s ease-in-out;
+	position: relative;
+}
+
+.th-custom-origin-row:hover {
+	margin-bottom: 10px;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+.th-select-label {
+	display: none;
+	position: absolute;
+	right: 100px;
+	top: 10px;
+	border-radius: 2px;
+	background: #0074a2;
+	color: #fff;
+	font-size: 10px;
+	font-weight: bold;
+	padding: 6px 8px;
+}
+
+.th-custom-origin-row:hover .th-select-label {
+	display: block;
+}
+
+input[name=thumbrio-custom-origin] {
+	vertical-align: super;
+}
+
+.th-custom-origin-row-selected {
+	background: #0074a2;
+	color: #fff;
+}
+
+.th-sub-comment {
+	font-size: 80%;
+	font-style: italic;
+	color: #888;
+}
+.th-amazon-options div {
+	margin-top:10px;
+	margin-bottom: 10px;
+}
+.th-h2 {
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 29px;
+	color:#222;
 }
