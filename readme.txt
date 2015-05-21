@@ -12,11 +12,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Serve the images in your pages through Thumbr.io.
 
 == Description ==
-This plugin makes the images in your blog responsive, adapting them to the size and resolution of your users' devices and serves them quickly through a first-class CDN.
+This plugin makes the images in your blog responsive, adapting them to the size and resolution of your users' devices and serves them quickly through a first-class *CDN*.
 
-You can serve images stored locally in your harddrive (usually in wp-content/uploads) or serve images stored in an Amazon S3 bucket.
+You can serve images stored locally in your harddrive (usually in wp-content/uploads) or serve images stored in an *Amazon S3 bucket*.
 
-To use this plugin you have to sign up in [Thumbr.io]. This plugin will sign you up automatically during the setup process if you still don't have an account in [Thumbr.io]. We only require an email address and a password.
+To use this plugin you have to sign up in [Thumbr.io](https://thumbr.io). This plugin will sign you up automatically during the setup process if you still don't have an account in [Thumbr.io](https://thumbr.io). We only require an email address and a password.
 
 You can serve up to 1 GB/month with our **Free** plan.
 
@@ -28,13 +28,13 @@ Requires WordPress 3.5 and PHP 5. Tested up to WordPress 4.2.2.
 
 
 **Plugin Features**
-* Streamlined Thumbr.io setup
-* Store images locally or remotely in Amazon S3
-* Edition of images in external storages
-* Access to a dashboard in Thumbr.io with full statistics of your usage
+    * Streamlined Thumbr.io setup
+    * Store images locally or remotely in Amazon S3
+    * Edition of images in external storages
+    * Access to a dashboard in Thumbr.io with full statistics of your usage
 
 **Coming soon**
-* Integrate Thumbr.io's usage charts
+    * Integrate Thumbr.io's usage charts
 
 == Installation ==
 1. Upload the folder **wp-thumbrio-plugin** to the **/wp-content/plugins/** directory.
@@ -42,7 +42,7 @@ Requires WordPress 3.5 and PHP 5. Tested up to WordPress 4.2.2.
 3. Once the plugin is active, you have to set it up in Settings. This will create a new Thumbr.io user account if needed.
 4. Select the storage of your image. It could be local, Amazon S3 or any other storage supported by Thumbr.io.
 
-Go to Other Notes to see these steps in further detail [Set-up guide]
+Go to Other Notes to see these steps in further detail [Set-up guide](http://wordpress.org/plugins/thumbrio/other_notes).
 
 == Frequently Asked Questions ==
 
@@ -80,7 +80,7 @@ a paid plan in Thumbr.io if you store your images remotely in Amazon S3.
 
 We specialize in serving images with friendly URLs through a first world class
 CDN. You can also use Thumbr.io outside of WordPress and access all its features
-directly. Please visit [Thumbr.io/doc] to see all our features and API to integrate
+directly. Please visit [https://thumbr.io/doc](https://thumbr.io/doc) to see all our features and API to integrate
 Thumbr.io in other projects.
 
 == Screenshots ==
