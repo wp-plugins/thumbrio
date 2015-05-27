@@ -32,13 +32,13 @@ define("ATTENTION_PNG",   plugins_url('static/img/attention.png', __FILE__));
 define("SYNCHRONIZE_PNG", THUMBRIO_FRONTEND . '/static/img/cloud-thumbr.png');
 
 define("THUMBRIO_WORDPRESS_CSS", plugins_url('static/css/thumbrio.wordpress.css', __FILE__));
-define("THUMBRIO_WORDPRESS_JS",  plugins_url('static/js/thumbrio.wordpress.js', __FILE__));
-define("THUMBRIO_EDITION_JS",    plugins_url('static/js/thumbrio.edition.js', __FILE__));
-define("THUMBRIO_RESPONSIVE_JS", plugins_url('static/js/thumbrio.responsive.js', __FILE__));
-define("THUMBRIO_SYNCHRO_JS",    plugins_url('static/js/thumbrio.synchronization.js', __FILE__));
-define("THUMBRIO_ORIGIN_JS",     plugins_url('static/js/thumbrio.origin.js', __FILE__));
-define("THUMBRIO_UPLOAD_JS",     plugins_url('static/js/thumbrio.upload.js', __FILE__));
-define("THUMBRIO_CUSTOMIZE_JS",  plugins_url('static/js/thumbrio.customize.js', __FILE__));
+define("THUMBRIO_WORDPRESS_JS",  plugins_url('static/js/thumbrio.wordpress.min.js', __FILE__));
+define("THUMBRIO_EDITION_JS",    plugins_url('static/js/thumbrio.edition.min.js', __FILE__));
+define("THUMBRIO_RESPONSIVE_JS", plugins_url('static/js/thumbrio.responsive.min.js', __FILE__));
+define("THUMBRIO_SYNCHRO_JS",    plugins_url('static/js/thumbrio.synchronization.min.js', __FILE__));
+define("THUMBRIO_ORIGIN_JS",     plugins_url('static/js/thumbrio.origin.min.js', __FILE__));
+define("THUMBRIO_UPLOAD_JS",     plugins_url('static/js/thumbrio.upload.min.js', __FILE__));
+define("THUMBRIO_CUSTOMIZE_JS",  plugins_url('static/js/thumbrio.customize.min.js', __FILE__));
 // OTHERS
 define("THUMBRIO_CSS_CLASS", "thumbrio-responsive");
 define("QA_ADMIN_EMAIL",     "adminemail");

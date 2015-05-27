@@ -213,7 +213,6 @@ class Bucket {
         return $size;
     }
 
-    // FIXME: Temporal desabled deletion
     /**
     * Remove a file from the bucket of amazon. Uses signature Version 4.
     *
@@ -236,8 +235,7 @@ class Bucket {
         $headers = $this->authorization_headers('DELETE', $canonical_uri, '', $canonical_headers, '', gmdate("Ymd\THis\Z"), $this->region, 's3');
         $url = "https://$this->bucket_name.s3.amazonaws.com$canonical_uri";
 
-        //FIXME TEMPORAL DISABLE DELETE FOR TESTING
-        //$response = Bucket::make_http_request($url, "DELETE", $headers, null);
+        $response = Bucket::make_http_request($url, "DELETE", $headers, null);
         $response = false;
         return $response;
     }

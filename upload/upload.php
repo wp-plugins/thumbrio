@@ -1,12 +1,6 @@
 <?php
 function thumbrio_upload_footer() {
     // Control update table in media-new page
-    /*
-    if (strpos($_SERVER['PHP_SELF'], 'wp-admin/media-new.php')) {
-        ?>
-            <script type='text/javascript' src='<?=THUMBRIO_UPLOAD_JS?>'></script>
-        <?php
-    }*/
     if (strpos($_SERVER['PHP_SELF'], 'wp-admin/options-general.php')) {
         ?>
             <script type='text/javascript' src='<?=THUMBRIO_WORDPRESS_JS?>'></script>
@@ -50,24 +44,35 @@ function thumbrio_get_local_upload_dir() {
 
 // Return the webdir for images (origin)
 function thumbrio_get_webdir () {
-    return get_option(OPTION_WEBDIR);
+    return get_option( OPTION_WEBDIR );
+}
+
+// Desanatize the filenames in the urls. It avoids to rename the urls in the bucket
+function desanitize ( $metadata ) {
+    $file_url   = $metadata['file'];
+    $file_parts = explode('/', $file_url);
+    $file       = end($file_parts);
+    if ($file === sanitize_file_name($file))
+        return $metadata;
+    $sizes = $metadata['sizes'];
+    foreach ($sizes as $size => $value) {
+        $size_file_query = $value['file'];
+        $file_parts = explode( '?', $size_file_query );
+        $query      = end( $file_parts );
+        $metadata['sizes'][$size]['file'] = "$file?$query";
+    }
+    return $metadata;
 }
 
 // Change the data created by WP
-function thumbrio_generate_uploaded_image_data( $post_id ) {
+function thumbrio_generate_uploaded_image_data( $post_id, $metadata ) {
     $post      = get_post( $post_id );
     $image_url = $post->guid;
 
-    $size = @getimagesize( $image_url );
-    $metadata = array (
-        'file'   => $image_url,
-        'width'  => $size[0],
-        'height' => $size[1]
-    );
+    $metadata['file'] = $image_url;
 
-    $image = new Thumbrio_Image_Editor( $image_url );
-    $sizes = thumbrio_get_image_sizes();
-    $metadata['sizes'] = $image->multi_resize( $sizes );
+    //Recover the file name of the previous sanitized
+    $metadata = desanitize ( $metadata );
 
     return  array (
             '_wp_attached_file'        => $image_url,
@@ -114,8 +119,8 @@ function thumbrio_get_post_id_from_size($url, $size = 'thumbnail') {
 }
 
 /**
-* Delete an image from Media Library and S3 bucket
-*/
+ * Delete an image from Media Library and S3 bucket
+ */
 function thumbrio_delete_post($post_id) {
     $post = get_post($post_id);
     $url2remove = $post->guid;
@@ -128,8 +133,8 @@ function thumbrio_delete_post($post_id) {
 }
 
 /**
-* Upload an image to amazon s3 and insert the GUID of post into the WP DB.
-*/
+ * Upload an image to amazon s3 and insert the GUID of post into the WP DB.
+ */
 function thumbrio_handle_upload ( $results ) {
     if (thumbrio_is_webdir_local()) {
         return $results;
@@ -175,21 +180,21 @@ function thumbrio_get_image_sizes () {
 }
 
 /*
- * Return a metadata corresponding to Thumbr.io options
- * given the usual metadata
+ * Translate the usual metadata in a metadata based on Thumbr.io arguments.
  */
 function thumbrio_generate_attachment_metadata($metadata, $parent_id = null) {
     $action = thumbrio_which_action($_SERVER, $_REQUEST);
 
-    // It doesn't change anything if we are in local origin.
-    // Don't change metadata if we are in media-new page to avoid an bug.
+    // It doesn't change anything if we are in a local origin.
+    // Don't change the metadata if we are in the media-new page (to avoid an bug).
     if (thumbrio_is_webdir_local()) {
         return $metadata;
     }
 
     if ($action === 'async-upload') {
         $folder    = thumbrio_delete_local_files($metadata);
-        $post_meta = thumbrio_generate_uploaded_image_data($parent_id);
+        //$post_meta = thumbrio_generate_uploaded_image_data($parent_id);
+        $post_meta = thumbrio_generate_uploaded_image_data($parent_id, $metadata);
         update_post_meta($parent_id, '_wp_attached_file', $post_meta['_wp_attached_file']);
         thumbrio_unlink_recursive($folder, true);
         return $post_meta['_wp_attachment_metadata'];
@@ -216,7 +221,7 @@ function thumbrio_get_attachment_image_attributes ( $attributes, $attachment, $s
     return $attributes;
 }
 
-// Insert in DB the information from a new image given by thumbrio url
+// Insert in the DB the information from a new image fetched by thumbrio url
 function thumbrio_insert_image ( $th_url ) {
     $image = new Thumbrio_Image_Editor ( $th_url );
     $info = $image->save();

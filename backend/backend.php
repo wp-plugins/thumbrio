@@ -86,12 +86,19 @@ function thumbrio_remove_edition_tag ($url) {
     return $url;
 }
 
-// Get the good url when there are thumbrio arguments
-// Filter of wp_get_attachment_url
+// Return the good url if there are thumbrio arguments.
+// Filter of wp_get_attachment_url.
+// Keep unchanged the images stored in local folder.
 function thumbrio_get_attachment_url($url, $post_id) {
-    $temporal = get_post_meta( $post_id);
-    $temporal = $temporal['_wp_attached_file'];
-    $new_url = $temporal[0];
+    //Check if there are double protocol
+    if ( !preg_match('/https?:\/\/.+https?:\/\//', $url) )
+        $new_url = $url;
+    else {
+        //If double protocol we get the url from the DB
+        $temporal = get_post_meta( $post_id);
+        $temporal = $temporal['_wp_attached_file'];
+        $new_url = $temporal[0];
+    }
     return $new_url;
 }
 

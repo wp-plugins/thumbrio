@@ -6,7 +6,7 @@
  * ****************************************************
  */
 function thumbrio_plugin_action_links($links) {
-    $tag = 'plugin=wp-thumbrio-plugin';
+    $tag = 'plugin=thumbrio';
     $new_links = array();
     $link_state = (isset($links['activate']))? 'activate' : 'deactivate';
     if (strpos($links[$link_state], $tag) > 0) {
@@ -47,10 +47,10 @@ function thumbrio_about() {
         <div>
             <h3>General Description</h3>
 
-            <p>Thumbr.io is a web application created to serve images optimally. Meaning, deliver
-            images at the correct resolution and size for any device.
-            This translates in a more efficient bandwidth consumption of your visitors.
-            It is, particularly, important for them that access your website through slow connections.</p>
+            <p>This plugin makes the images in your blog responsive, adapting them to the size and
+            resolution of your users' devices and serves them quickly through a first-class CDN.
+            You can serve images stored locally in your harddrive (usually in wp-content/uploads)
+            or serve images stored in an Amazon S3 bucket.</p>
 
             <h4>Under Paid Plan</h4>
             <p> You benefit from delivering your images and static content through a dedicated worldwide CDN,

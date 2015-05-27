@@ -1,11 +1,11 @@
 <?php
 
-function thumbrio_remove_image_extension ($image) {
+function thumbrio_remove_image_extension ( $image ) {
     $name_parts = explode('.', $image);
     return implode('.', array_slice($name_parts, 0, count($name_parts) - 1));
 }
 
-function thumbrio_update_header_post($post_id, $metadata) {
+function thumbrio_update_header_post ( $post_id, $metadata ) {
     $url_file_array = parse_url($metadata['file']);
     $long_name      = substr($url_file_array['path'], 1);
     $post_title     = urldecode(thumbrio_remove_image_extension($long_name));
@@ -21,7 +21,7 @@ function thumbrio_update_header_post($post_id, $metadata) {
 }
 // Compute the dimensions of header.
 // TODO: Use the "flex" conditions
-function thumbrio_get_header_dimensions( $dimensions = null ) {
+function thumbrio_get_header_dimensions ( $dimensions = null ) {
     $theme_height = get_theme_support( 'custom-header', 'height' );
     $theme_width  = get_theme_support( 'custom-header', 'width' );
     //$has_flex_width  = current_theme_supports( 'custom-header', 'flex-width' );
@@ -33,7 +33,7 @@ function thumbrio_get_header_dimensions( $dimensions = null ) {
 
 
 // Create the metadata asscociated to header image
-function thumbrio_generate_cropped_header_metadata($metadata, $post_id, $crop, $parent_id) {
+function thumbrio_generate_cropped_header_metadata ( $metadata, $post_id, $crop, $parent_id ) {
     $dst = thumbrio_get_header_dimensions();
     // Update width to keep the aspect ratio
     $dst['height'] = round ($crop['height'] * $dst['width'] / $crop['width']);
@@ -59,7 +59,7 @@ function thumbrio_generate_cropped_header_metadata($metadata, $post_id, $crop, $
 
 // Displayable image. Used in 'wp_generate_attachment_metadata'
 // Return false to avoid WP to try to open the file. Otherwise, it'll crash
-function thumbrio_file_is_displayable_image ($result, $path) {
+function thumbrio_file_is_displayable_image ( $result, $path ) {
     if (thumbrio_which_action($_SERVER, $_REQUEST) === 'custom-header-crop')
         return false;
     return $result;
@@ -68,7 +68,7 @@ function thumbrio_file_is_displayable_image ($result, $path) {
 // Change the default name given to the cropped header.
 // Return a 'filename' with thumbrio's query arguments.
 // The generated header file and folders are removed from local directory.
-function thumbrio_create_file_in_uploads ($cropped, $post_id) {
+function thumbrio_create_file_in_uploads ( $cropped, $post_id ) {
     $action = thumbrio_which_action($_SERVER, $_REQUEST);
     if ($action === 'custom-header-crop') {
         // Remove file and folders
