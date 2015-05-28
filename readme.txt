@@ -5,18 +5,18 @@ Donate link: http://thumbr.io
 Requires at least: 3.5
 Tested up to: 4.2.2
 
-Stable tag: 2.1.3
+Stable tag: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Serve the images in your pages through Thumbr.io.
 
 == Description ==
-This plugin makes the images in your blog responsive, adapting them to the size and resolution of your users' devices and serves them quickly through a first-class **CDN**.
+This plugin makes the images in your blog responsive, adapting them to the size and resolution of your users' devices and serves them quickly through a first-class CDN.
 
-You can serve images stored locally in your harddrive (usually in wp-content/uploads) or serve images stored in an **Amazon S3 bucket**.
+You can serve images stored locally in your harddrive (usually in wp-content/uploads) or serve images stored in an Amazon S3 bucket.
 
-To use this plugin you have to sign up in [Thumbr.io](https://thumbr.io). This plugin will sign you up automatically during the setup process if you still don't have an account in [Thumbr.io](https://thumbr.io). We only require an email address and a password.
+To use this plugin you have to sign up in [Thumbr.io]. This plugin will sign you up automatically during the setup process if you still don't have an account in [Thumbr.io]. We only require an email address and a password.
 
 You can serve up to 1 GB/month with our **Free** plan.
 
@@ -27,15 +27,13 @@ Do you need any special features? Please let us know, we are constantly improvin
 Requires WordPress 3.5 and PHP 5. Tested up to WordPress 4.2.2.
 
 
-*Plugin Features*
-
+**Plugin Features**
 * Streamlined Thumbr.io setup
 * Store images locally or remotely in Amazon S3
 * Edition of images in external storages
 * Access to a dashboard in Thumbr.io with full statistics of your usage
 
-*Coming soon*
-
+**Coming soon**
 * Integrate Thumbr.io's usage charts
 
 == Installation ==
@@ -44,7 +42,7 @@ Requires WordPress 3.5 and PHP 5. Tested up to WordPress 4.2.2.
 3. Once the plugin is active, you have to set it up in Settings. This will create a new Thumbr.io user account if needed.
 4. Select the storage of your image. It could be local, Amazon S3 or any other storage supported by Thumbr.io.
 
-Go to Other Notes to see these steps in further detail [Set-up guide](http://wordpress.org/plugins/thumbrio/other_notes).
+Go to Other Notes to see these steps in further detail [Set-up guide]
 
 == Frequently Asked Questions ==
 
@@ -82,7 +80,7 @@ a paid plan in Thumbr.io if you store your images remotely in Amazon S3.
 
 We specialize in serving images with friendly URLs through a first world class
 CDN. You can also use Thumbr.io outside of WordPress and access all its features
-directly. Please visit [https://thumbr.io/doc](https://thumbr.io/doc) to see all our features and API to integrate
+directly. Please visit [Thumbr.io/doc] to see all our features and API to integrate
 Thumbr.io in other projects.
 
 == Screenshots ==
@@ -90,11 +88,16 @@ Thumbr.io in other projects.
 1. Link the plugin to a Thumbr.io's account. Sign up (A) to create a Thumbr.io's account or log in (B) to use a previously created account. Follow Settings -> Thumbr.io (C) to customize Thumbr.io settings.
 
 2. Set up the plugin. You have to select the location of your original (high-resolution)
-images. You can store them locally (A) or in Amazon S3 (B). If it's the first time you setup the Amazon S3 account that you want to use, you will have to add your credentials in (C).
-If you already have an Amazon S3 account in your Thumbr.io preferences, you can use it here automatically selecting Custom origin (D). It will list automatically all the Amazon S3 accounts
+images. You can store them locally (A) or in Amazon S3 (B). If you already have an Amazon
+S3 account in your Thumbr.io preferences, you can use it here automatically selecting
+Custom origin (C). If it's the first time you setup the Amazon S3 account that you want
+to use, you will have to add your credentials in (D).
+
+3. Select a Previously Configured Origin. If you already have a linked Amazon S3 in your Thumbr.io
+profile, you can use it here. It will list automatically all the Amazon S3 accounts
 linked to your Thumbr.io account.
 
-3. After saving your settings. If you want to have access in WordPress to images
+4. After saving your settings. If you want to have access in WordPress to images
 already stored in Amazon S3 click the "synchronization" button (A). In your Thumbr.io
 profile you have detailed statistics of your usage, and there you can change / upgrade
 your plan.
@@ -106,7 +109,7 @@ your plan.
 1. Sign up in Thumbr.io ([Screenshot 1](http://wordpress.org/plugins/thumbrio/screenshots)).
 
 2. Setup the Thumbr.io WordPress plugin: Select where do you want to store your
-original (high-resolution) images ([Screenshot 2](http://wordpress.org/plugins/thumbrio/screenshots)). You can store them:
+original (high-resolution) images. You can store them:
     * _Local storage_. Default and only option in standard WordPress.
     * _Amazon S3_. Recommended, use Amazon S3 to store your images in a virtually
     unlimited harddrive:
@@ -114,12 +117,13 @@ original (high-resolution) images ([Screenshot 2](http://wordpress.org/plugins/t
         2. In the Thumbr.io WordPress settings add your Amazon S3 bucket credentials (see [Screenshot 2](http://wordpress.org/plugins/thumbrio/screenshots)).
         3. The credentials that you use must have permission to: list, upload and delete.
         4. Add a CORS configuration to your bucket (see the CORS Configuration section).
-    * _Custom Origin_. Other S3 buckets already configured in Thumbr.io.
+    * _Custom Origin_. Other S3 buckets already configured in Thumbr.io
+    ([Screenshot 3](http://wordpress.org/plugins/thumbrio/screenshots)).
 
 3. Synchronization: Give WordPress access to your images that are already stored in
 your Amazon S3 bucket (only available when you store your original images in Amazon S3).
 It can take several seconds / minutes to synchronize your Amazon S3 collection with
-WordPress ([Screenshot 3](http://wordpress.org/plugins/thumbrio/screenshots)). NOTE:
+WordPress ([Screenshot 4](http://wordpress.org/plugins/thumbrio/screenshots)). NOTE:
 We currently don't provide a way to automatically upload your WordPress existing
 collection to Amazon S3.
 

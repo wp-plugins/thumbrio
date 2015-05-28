@@ -372,9 +372,9 @@ class Thumbrio {
                     <li>
                         <span class="th-h2"><label><input type="radio" name="thumbrio"
                         <?php echo ($first_time ? '':'checked');?>
-                        value="custom" onclick="clickCustom();"> Custom origin</label></span >
+                        value="custom" onclick="clickCustom();"> Previously Configured Origin</label></span >
 
-                        <p>Advanced. Select a custom origin configured manually in your Thumbr.io profile
+                        <p>Advanced. Select an origin configured manually in your Thumbr.io profile
                         (http://thumbr.io/profile). Only use this option if you know what you're doing.</p>
 
                         <div id="th-custom-origin">
