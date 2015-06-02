@@ -28,13 +28,15 @@ Requires WordPress 3.5 and PHP 5. Tested up to WordPress 4.2.2.
 
 
 **Plugin Features**
-* Streamlined Thumbr.io setup
-* Store images locally or remotely in Amazon S3
-* Edition of images in external storages
-* Access to a dashboard in Thumbr.io with full statistics of your usage
+
+    * Streamlined Thumbr.io setup
+    * Store images locally or remotely in Amazon S3
+    * Edition of images in external storages
+    * Access to a dashboard in Thumbr.io with full statistics of your usage
 
 **Coming soon**
-* Integrate Thumbr.io's usage charts
+
+    * Integrate Thumbr.io's usage charts
 
 == Installation ==
 1. Upload the folder **wp-thumbrio-plugin** to the **/wp-content/plugins/** directory.
