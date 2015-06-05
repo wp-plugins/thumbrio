@@ -44,7 +44,7 @@ Requires WordPress 3.5 and PHP 5. Tested up to WordPress 4.2.2.
 3. Once the plugin is active, you have to set it up in Settings. This will create a new Thumbr.io user account if needed.
 4. Select the storage of your image. It could be local, Amazon S3 or any other storage supported by Thumbr.io.
 
-Go to Other Notes to see these steps in further detail [Set-up guide]
+Go to Other Notes to see these steps in further detail [Set-up guide](http://wordpress.org/plugins/thumbrio/other_notes)
 
 == Frequently Asked Questions ==
 
