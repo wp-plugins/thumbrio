@@ -16,7 +16,7 @@ This plugin makes the images in your blog responsive, adapting them to the size 
 
 You can serve images stored locally in your harddrive (usually in wp-content/uploads) or serve images stored in an Amazon S3 bucket.
 
-To use this plugin you have to sign up in [Thumbr.io]. This plugin will sign you up automatically during the setup process if you still don't have an account in [Thumbr.io]. We only require an email address and a password.
+To use this plugin you have to sign up in [Thumbr.io](https://thumbr.io). This plugin will sign you up automatically during the setup process if you still don't have an account in [Thumbr.io](https://thumbr.io). We only require an email address and a password.
 
 You can serve up to 1 GB/month with our **Free** plan.
 
@@ -82,7 +82,7 @@ a paid plan in Thumbr.io if you store your images remotely in Amazon S3.
 
 We specialize in serving images with friendly URLs through a first world class
 CDN. You can also use Thumbr.io outside of WordPress and access all its features
-directly. Please visit [Thumbr.io/doc] to see all our features and API to integrate
+directly. Please visit [Thumbr.io/doc](https://thumbr.io/doc) to see all our features and API to integrate
 Thumbr.io in other projects.
 
 == Screenshots ==
@@ -170,7 +170,7 @@ Visit [thumbr.io](https://thumbr.io) to get information about our service and pr
 = 2.0 =
 * Serve image from your local wordpress static repository
 * Easier Setting Up process
-* Improve integration with [thumbr.io](thumbr.io)
+* Improve integration with [thumbr.io](https://thumbr.io)
 
 = 1.0 =
 * First release
